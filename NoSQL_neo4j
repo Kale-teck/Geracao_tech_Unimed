@@ -1,0 +1,23 @@
+create(:Client {name: "Lula Molusco", age: 30, hobbies: ['Tocar Clarinete']}) -[:Bloqueado]->(:Client {name: "Patrick",  hobbies: ['Caçar agua-viva']})
+
+create (:Object)
+
+match (todos) return todos;
+
+match (lula:Client {name:"Lula Molusco"}), (patrick:Client {name:"Patrick"}) create (lula)-[:Bloqueado]->(patrick)
+
+match (todos) return todos;
+
+match (lula:Client {name: "Lula Molusco"})-[relaciona:Bloqueado->]-() delete relaciona
+
+match (lula:Client {name: "Lula Molusco"})-[relaciona:Bloqueado]-() delete relaciona
+
+match (todos) return todos;
+
+match (lula:Client {name: "Lula Molusco"}) delete lula;
+
+match (patrick:Client {name: "Patrick"}) set patrick.hobbies = ['Caçar agua viva'];
+
+match(patrick:Client {name: "Patrick"}) set patrick:Client_Premium
+
+match (todos) return todos;
